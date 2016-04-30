@@ -38,6 +38,15 @@ namespace MvcApplication1
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/ckeditor", "//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.4/ckeditor.js")
+                .Include("~/Scripts/ckeditor/ckeditor.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/ckeditor/adapter", "//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.5.4/adapters/jquery.js")
+                .Include("~/Scripts/ckeditor/adapters/jquery.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/ckeditor/markdown")
+                .Include("~/Scripts/ckeditor/plugins/markdown/plugin.js"));
         }
     }
 }

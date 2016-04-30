@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Ganss.XSS;
 using MvcApplication1.Models;
 
 namespace MvcApplication1.Controllers
@@ -32,9 +29,11 @@ namespace MvcApplication1.Controllers
 
         public ActionResult HandlePost(TestModel model)
         {
+            var safeMessage = new HtmlSanitizer().Sanitize(model.Message);
+
             return new ContentResult()
             {
-                Content = model.Message
+                Content = safeMessage
             };
         }
     }

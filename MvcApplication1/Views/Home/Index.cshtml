@@ -24,13 +24,17 @@
 
 @using (Html.BeginForm("HandlePost", "Home"))
 {
-    @Html.TextAreaFor(m => m.Message)
+    @Html.TextAreaFor(m => m.Message, new { data_rte = "yes" })
     <input type="submit" value="Submit" />
 }
 
 <script>
     $(function () {
-        $('#Message').ckeditor();
+        CKEDITOR.plugins.addExternal('markdown', '/Scripts/ckeditor/plugins/markdown/', 'plugin.js');
+
+        $('textarea[data-rte=yes]').ckeditor({
+            customConfig: '/Scripts/ckeditor_settings/config.js'
+        });
     });
 </script>
 
